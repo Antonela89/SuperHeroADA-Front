@@ -14,48 +14,61 @@ const itemsPerPage = 20;
 
 // Función para inicializar los datos en este módulo
 export const setHerosData = (data) => {
-    heros = data; // Guardar los resultados en la variable local
-    currentPage = 1; // Resetear a la página 1 cuando llegan nuevos datos
-    updatePage(); // Renderizar la primera vez
+	heros = data; // Guardar los resultados en la variable local
+	currentPage = 1; // Resetear a la página 1 cuando llegan nuevos datos
+
+	// Manejar array vacío
+	if (heros.length === 0) {
+		// mensaje al usuario
+		document.getElementById('results-container').innerHTML =
+			'<i class="fa-solid fa-thumbs-down"></i><p class="col-span-full text-center text-xl font-bold mt-10">No se encontraron superhéroes</p>';
+
+		// Actualizar UI para que diga "Página 1 de 0"
+		updateUI();
+		return; // cortar proceso
+	}
+
+	// Renderizar la primera vez
+	updatePage();
 };
 
 // Lógica principal de paginado
 const updatePage = () => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const herosShow = heros.slice(startIndex, endIndex);
+	const startIndex = (currentPage - 1) * itemsPerPage;
+	const endIndex = startIndex + itemsPerPage;
+	const herosShow = heros.slice(startIndex, endIndex);
 
-    renderHeros(herosShow); // Llamar a la función render
-    updateUI(); // Llamar a la función updateUI
+	renderHeros(herosShow); // Llamar a la función render
+	updateUI(); // Llamar a la función updateUI
 };
 
 // Función auxiliar para actualzizar información de botones y paginado
 const updateUI = () => {
-    $pagina.textContent = currentPage;
-    const totalPages = Math.ceil(heros.length / itemsPerPage);
+	$pagina.textContent = currentPage;
+	const totalPages = Math.ceil(heros.length / itemsPerPage);
 
-    $infoPaginado.textContent = `Mostrando página ${currentPage} de ${totalPages} (Total Heroes: ${heros.length})`;
+	$infoPaginado.textContent = `Mostrando página ${currentPage} de ${totalPages} (Total Heroes: ${heros.length})`;
 
-    $btnPrev.disabled = currentPage === 1;
-    $btnNext.disabled = currentPage === totalPages;
+	$btnPrev.disabled = currentPage === 1;
+	$btnNext.disabled = currentPage === totalPages;
 };
 
 // Inicializar eventos (se llama una vez desde main)
 export const initPaginationListeners = () => {
-    $btnPrev.addEventListener('click', () => {
-        if (currentPage > 1) {
-            currentPage--;
-            updatePage();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    });
+	$btnPrev.addEventListener('click', () => {
+		if (currentPage > 1) {
+			currentPage--;
+			updatePage();
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+	});
 
-    $btnNext.addEventListener('click', () => {
-        const totalPages = Math.ceil(heros.length / itemsPerPage);
-        if (currentPage < totalPages) {
-            currentPage++;
-            updatePage();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    });
+	$btnNext.addEventListener('click', () => {
+		const totalPages = Math.ceil(heros.length / itemsPerPage);
+		if (currentPage < totalPages) {
+			currentPage++;
+			updatePage();
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		}
+	});
 };
