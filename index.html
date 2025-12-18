@@ -13,7 +13,27 @@
 
 <body>
     <!-- Encabezado -->
-    <header></header>
+    <header>
+        <nav class="bg-white dark:bg-gray-800 shadow-md fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+            aria-label="Menú principal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-comic-pink dark:text-comic-pink"
+                            aria-hidden="true">SuperHero - ADA</span>
+                    </div>
+
+                    <!-- Botón Dark Mode -->
+                    <button id="theme-toggle" aria-label="Cambiar modo oscuro/claro"
+                        class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none">
+                        <span id="theme-icon" aria-hidden="true" class="flex justify-center items-center w-6 h-6">
+                            <i class="fa-solid fa-moon text-indigo-600"></i>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <!-- Cuerpo -->
     <main></main>
