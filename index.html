@@ -61,8 +61,28 @@
 
         <!-- Seccion de Resultados -->
         <section id="results-container">
+            <p id="info-paginado"></p>
             <!-- Aqui se inyectan los resultados con JS -->
         </section>
+
+        <!-- Paginación -->
+        <nav aria-label="Navegación de páginas" class="flex justify-center gap-6">
+            <button id="btn-prev"
+                class="bg-comic-pink shadow-md hover:shadow-amber-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div
+                class="px-4 py-2 rounded-lg shadow font-mono font-bold text-comic-pink">
+                Página <span id="pagina">1</span>
+            </div>
+
+
+            <button id="btn-next"
+                class="bg-comic-pink shadow-md hover:shadow-amber-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </nav>
     </main>
 
     <!-- Pie -->
