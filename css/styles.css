@@ -5,35 +5,82 @@
 @layer base {
     :root {
         /* MODO CLARO */
-        --bg-main: #f3f4f6;       /* Antes bg-gray-100 */
-        --bg-card: #ffffff;       /* Antes bg-white (Navbar/Cards) */
-        --text-main: #1f2937;     /* Antes text-gray-800 */
-        --primary: #cd0055;       /* Rosa comic */
-        --accent: #fbbf24;        /* Antes amber-400 */
-        --border-color: #e5e7eb;  /* Antes border-gray-200 */
-        --btn-bg: #e5e7eb;        /* Para el botón de theme (gray-200) */
-        --btn-hover: #d1d5db;     /* Hover del botón theme (gray-300) */
+        --bg-main: #f3f4f6;
+        /* Antes bg-gray-100 */
+        --bg-card: #ffffff;
+        /* Antes bg-white (Navbar/Cards) */
+        --text-main: #1f2937;
+        /* Antes text-gray-800 */
+        --primary: #cd0055;
+        /* Rosa comic */
+        --accent: #fbbf24;
+        /* Antes amber-400 */
+        --border-color: #e5e7eb;
+        /* Antes border-gray-200 */
+        --btn-bg: #e5e7eb;
+        /* Para el botón de theme (gray-200) */
+        --btn-hover: #d1d5db;
+        /* Hover del botón theme (gray-300) */
     }
 
     .dark {
         /* MODO OSCURO */
-        --bg-main: #111827;       /* Antes bg-gray-900 */
-        --bg-card: #1f2937;       /* Antes bg-gray-800 */
-        --text-main: #f3f4f6;     /* Antes text-gray-100 */
-        --accent: #fbbf24;        /* El amarillo se mantiene igual */
-        --primary: #cd0055;       /* El rosa se mantiene igual */
-        --border-color: #4b5563;  /* Antes border-gray-600 */
-        --btn-bg: #374151;        /* Botón theme dark (gray-700) */
-        --btn-hover: #4b5563;     /* Hover theme dark (gray-600) */
+        --bg-main: #111827;
+        /* Antes bg-gray-900 */
+        --bg-card: #1f2937;
+        /* Antes bg-gray-800 */
+        --text-main: #f3f4f6;
+        /* Antes text-gray-100 */
+        --accent: #fbbf24;
+        /* El amarillo se mantiene igual */
+        --primary: #cd0055;
+        /* El rosa se mantiene igual */
+        --border-color: #4b5563;
+        /* Antes border-gray-600 */
+        --btn-bg: #374151;
+        /* Botón theme dark (gray-700) */
+        --btn-hover: #4b5563;
+        /* Hover theme dark (gray-600) */
     }
 }
 
-
-.hero-container {
+.bg-comic {
     background-image: url('../assets/banner.png');
     background-size: cover;
-    background-position: top;
     background-attachment: fixed;
     inline-size: 100vw;
-    block-size: 20rem;
+}
+
+.hero-container {
+    background-position: top center;
+}
+
+/* FOOTER: Muestra la parte de abajo de la imagen */
+.footer-container {
+    background-position: bottom center;
+    min-height: 10rem; 
+}
+
+
+.footer-overlay {
+    background-color: var(--primary); 
+    opacity: 0.2; 
+    position: absolute;
+    inset: 0; 
+    pointer-events: none; 
+}
+
+/* El contenido del footer (texto) */
+.footer-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    padding: 3rem;
+    /* box-shadow: inset 0 0 3rem 3px var(--accent);  */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8); 
+    color: white; 
 }
