@@ -5,45 +5,46 @@
 @layer base {
     :root {
         /* MODO CLARO */
-        --bg-main: #f3f4f6;
         /* Antes bg-gray-100 */
-        --bg-card: #ffffff;
+        --bg-main: #f3f4f6;
         /* Antes bg-white (Navbar/Cards) */
-        --text-main: #1f2937;
+        --bg-card: #ffffff;
         /* Antes text-gray-800 */
-        --primary: #cd0055;
+        --text-main: #1f2937;
         /* Rosa comic */
-        --accent: #fbbf24;
+        --primary: #cd0055;
         /* Antes amber-400 */
-        --border-color: #e5e7eb;
+        --accent: #fbbf24;
         /* Antes border-gray-200 */
-        --btn-bg: #e5e7eb;
+        --border-color: #e5e7eb;
         /* Para el botón de theme (gray-200) */
-        --btn-hover: #d1d5db;
+        --btn-bg: #e5e7eb;
         /* Hover del botón theme (gray-300) */
+        --btn-hover: #d1d5db;
     }
 
+    /* MODO OSCURO */
     .dark {
-        /* MODO OSCURO */
-        --bg-main: #111827;
         /* Antes bg-gray-900 */
-        --bg-card: #1f2937;
+        --bg-main: #111827;
         /* Antes bg-gray-800 */
-        --text-main: #f3f4f6;
+        --bg-card: #1f2937;
         /* Antes text-gray-100 */
-        --accent: #fbbf24;
+        --text-main: #f3f4f6;
         /* El amarillo se mantiene igual */
-        --primary: #cd0055;
+        --accent: #fbbf24;
         /* El rosa se mantiene igual */
-        --border-color: #4b5563;
+        --primary: #cd0055;
         /* Antes border-gray-600 */
-        --btn-bg: #374151;
+        --border-color: #4b5563;
         /* Botón theme dark (gray-700) */
-        --btn-hover: #4b5563;
+        --btn-bg: #374151;
         /* Hover theme dark (gray-600) */
+        --btn-hover: #4b5563;
     }
 }
 
+/*BACKGROUND*/
 .bg-comic {
     background-image: url('../assets/banner.png');
     background-size: cover;
@@ -51,8 +52,13 @@
     inline-size: 100vw;
 }
 
+/* HERO: Muestra la parte de arriba de la imagen */
 .hero-container {
     background-position: top center;
+    height: 50vh;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* FOOTER: Muestra la parte de abajo de la imagen */
