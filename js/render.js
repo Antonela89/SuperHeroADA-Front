@@ -12,11 +12,11 @@ export const renderHeros = (results) => {
         const card = document.createElement('article');
         // Rellenar con información y etiquetas HTML
         card.innerHTML = `
-            <div class="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-md shadow-md hover:shadow-amber-400 border border-b-4 border-comic-pink transition-transform hover:scale-105 active:scale-95 group">
+            <div class="cursor-pointer bg-superficie text-texto border-borde p-6 rounded-md shadow-md hover:shadow-amber-400 border border-b-4 border-comic-pink transition-transform hover:scale-105 active:scale-95 group">
                 <img src="${res.images.sm}" alt="${res.name}"
                     class="w-16 h-16 rounded-full border-2 border-comic-pink object-cover">
                 <div>
-                    <h4 class="text-gray-800 dark:text-white font-bold text-lg">${res.name}</h4>
+                    <h4 class="text-texto font-bold text-lg group-hover:text-acento">${res.name}</h4>
                     <p class="text-comic-pink text-sm">${res.appearance.gender}</p>
                 </div>
             </div>`;

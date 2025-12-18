@@ -14,39 +14,48 @@
 </head>
 
 <!-- Configuracion de Tailwind -->
+    
 <script>
     tailwind.config = {
-        // Dark Mode
         darkMode: 'class',
-
-        // Paleta de colores
         theme: {
             extend: {
                 colors: {
-                    'comic-pink': '#cd0055',
-                },
-            }
-        }
+                    // Mapeo de variables
+                    fondo: 'var(--bg-main)',       // Fondo general de la web
+                    superficie: 'var(--bg-card)',  // Fondo de navbar y tarjetas
+                    texto: 'var(--text-main)',     // Color de letra principal
+                    'acento': 'var(--accent)',     // Color de acento
+                    'comic-pink': 'var(--primary)',// Color de marca
+                    borde: 'var(--border-color)',  // Color de líneas divisorias
+                    
+                    // Colores específicos para UI
+                    'btn-ui': 'var(--btn-bg)',
+                    'btn-ui-hover': 'var(--btn-hover)',
+                }
+            },
+        },
     }
 </script>
 
-<body>
+<body
+    class="bg-superficie text-texto transition-colors duration-300 min-h-screen flex flex-col">
     <!-- Encabezado -->
     <header>
-        <nav class="bg-white dark:bg-gray-800 shadow-md fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+        <nav class="bg-superficie shadow-md fixed w-full z-20 top-0 start-0 border-b border-borde"
             aria-label="Menú principal">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center">
-                        <span class="text-2xl font-bold text-comic-pink dark:text-comic-pink"
+                        <span class="text-2xl font-bold text-comic-pink"
                             aria-hidden="true">SuperHero - ADA</span>
                     </div>
 
                     <!-- Botón Dark Mode -->
                     <button id="theme-toggle" aria-label="Cambiar modo oscuro/claro"
-                        class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none">
+                        class="p-2 rounded-full bg-btn-ui hover:bg-btn-ui-hover focus:outline-none shadow-md hover:dark:shadow-acento hover:shadow-texto group">
                         <span id="theme-icon" aria-hidden="true" class="flex justify-center items-center w-6 h-6">
-                            <i class="fa-solid fa-moon text-indigo-600"></i>
+                            <i class="fa-solid fa-moon"></i>
                         </span>
                     </button>
                 </div>
@@ -55,31 +64,33 @@
     </header>
 
     <!-- Cuerpo -->
-    <main>
+    <main class="mt-16">
         <!-- Hero -->
         <div class="hero-container"></div>
 
         <!-- Seccion de Resultados -->
-        <section id="results-container">
-            <p id="info-paginado"></p>
-            <!-- Aqui se inyectan los resultados con JS -->
+        <section class="container mx-auto p-4">
+            <p id="info-paginado" class="text-center my-4 font-bold"></p>
+
+            <div id="results-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-6 gap-6">
+                <!-- Aqui se inyectan los resultados con JS -->
+            </div>
         </section>
 
         <!-- Paginación -->
-        <nav aria-label="Navegación de páginas" class="flex justify-center gap-6">
+        <nav nav aria-label="Navegación de páginas" class="flex justify-center gap-6 mb-8">
             <button id="btn-prev"
-                class="bg-comic-pink shadow-md hover:shadow-amber-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                class="bg-comic-pink shadow-md hover:shadow-acento text-texto font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
 
-            <div
-                class="px-4 py-2 rounded-lg shadow font-mono font-bold text-comic-pink">
+            <div class="px-4 py-2 rounded-md shadow font-mono font-bold text-comic-pink bg-superficie border border-borde flex items-center">
                 Página <span id="pagina">1</span>
             </div>
 
 
             <button id="btn-next"
-                class="bg-comic-pink shadow-md hover:shadow-amber-400 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                class="bg-comic-pink shadow-md hover:shadow-acento text-texto font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
         </nav>
