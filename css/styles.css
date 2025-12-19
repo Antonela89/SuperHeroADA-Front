@@ -83,3 +83,39 @@
     background-position: bottom center;
     block-size: 50vh;
 }
+
+/* Animación de Explosión (La máscara crece y desaparece) */
+@keyframes comic-explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(30); /* Crece muchísimo */
+        opacity: 0;
+    }
+}
+
+/* Clase utilitaria para activar la animación */
+.animate-explode {
+    animation: comic-explode 0.6s ease-out forwards;
+}
+
+/* Animación de Onda Expansiva (Shockwave) */
+@keyframes shockwave-pulse {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+.animate-shockwave {
+    animation: shockwave-pulse 0.5s ease-out forwards;
+}
