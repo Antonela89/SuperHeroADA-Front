@@ -75,7 +75,7 @@ const updateUI = () => {
         <div class="flex items-baseline gap-2">
             <i class="fa-solid fa-layer-group text-comic-pink text-lg"></i>
             <span class="text-sm font-bold text-texto uppercase tracking-widest">Página</span>
-            <span class="text-2xl font-black text-white leading-none">${currentPage}</span>
+            <span class="text-2xl font-black text-comic-pink leading-none">${currentPage}</span>
             <span class="text-xs font-bold text-texto opacity-50">de ${totalPages}</span>
         </div>
 
