@@ -136,7 +136,7 @@
 
         <!-- Seccion de Resultados -->
         <section id="main-content" class="container mx-auto p-4 hidden min-h-[500px]">
-            <p id="info-paginado" class="text-center my-4 font-bold"></p>
+            <div id="info-paginado" class="flex justify-center my-8 animate-fade-in-up"></div>
 
             <div id="results-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-6 gap-6">
                 <!-- Aqui se inyectan los resultados con JS -->
@@ -144,19 +144,40 @@
 
             <!-- Paginación -->
             <nav aria-label="Navegación de páginas" class="flex justify-center gap-6">
-                <button id="btn-prev"
-                    class="bg-comic-pink shadow-md hover:shadow-acento text-texto font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                <!-- Botón PRIMERO (<<) -->
+                <button id="btn-first" title="Ir al principio"
+                    class="bg-superficie text-comic-pink border-2 border-comic-pink hover:bg-comic-pink hover:text-white font-bold py-2 px-4 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-superficie disabled:hover:text-comic-pink">
+                    <i class="fa-solid fa-angles-left"></i>
+                </button>
+
+                <!-- Botón ANTERIOR (<) -->
+                <button id="btn-prev" title="Página anterior"
+                    class="bg-comic-pink shadow-md hover:shadow-acento text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:shadow-none">
                     <i class="fa-solid fa-chevron-left"></i>
                 </button>
 
+                <!-- SELECTOR DE PÁGINA -->
                 <div
-                    class="px-4 py-2 rounded-md shadow font-mono font-bold text-comic-pink bg-superficie border border-borde flex items-center">
-                    Página <span id="pagina">1</span>
+                    class="flex items-center gap-2 bg-superficie px-4 py-2 rounded-lg border-2 border-borde shadow-inner">
+                    <span class="text-sm font-bold text-texto">Pág.</span>
+                    <!-- El select se rellena con JS -->
+                    <select id="select-pages"
+                        class="bg-fondo text-comic-pink font-bold border border-borde rounded p-1 focus:outline-none focus:border-acento cursor-pointer">
+                        <option value="1">1</option>
+                    </select>
+                    <span class="text-sm font-bold text-texto" id="total-pages-text">de 1</span>
                 </div>
 
-                <button id="btn-next"
-                    class="bg-comic-pink shadow-md hover:shadow-acento text-texto font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+                <!-- Botón SIGUIENTE (>) -->
+                <button id="btn-next" title="Página siguiente"
+                    class="bg-comic-pink shadow-md hover:shadow-acento text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:shadow-none">
                     <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <!-- Botón ÚLTIMO (>>) -->
+                <button id="btn-last" title="Ir al final"
+                    class="bg-superficie text-comic-pink border-2 border-comic-pink hover:bg-comic-pink hover:text-white font-bold py-2 px-4 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-superficie disabled:hover:text-comic-pink">
+                    <i class="fa-solid fa-angles-right"></i>
                 </button>
             </nav>
         </section>
@@ -185,9 +206,6 @@
             </p>
         </div>
     </footer>
-
-
-
 
     <!-- MODAL DE FICHA TÉCNICA -->
     <div id="hero-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -335,4 +353,4 @@
     <script src="./js/cursor.js" type="module"></script>
 </body>
 
-</html>
+</html>>
