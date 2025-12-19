@@ -54,7 +54,8 @@
         </div>
 
         <!-- Texto de Carga -->
-        <h2 id="loader-text" class="mt-8 text-3xl font-black uppercase tracking-widest comic-font-base animate-heartbeat">
+        <h2 id="loader-text"
+            class="mt-8 text-3xl font-black uppercase tracking-widest comic-font-base animate-heartbeat">
             Buscando...
         </h2>
     </div>
@@ -98,7 +99,7 @@
                 <!-- Input Principal -->
                 <div class="relative w-full">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-texto">
-                        <i class="fa-solid fa-magnifying-glass text-comic-pink"></i>
+                        <i class="fa-solid fa-magnifying-glass text-comic-pink" aria-hidden="true"></i>
                     </span>
                     <input id="hero-name" type="text" placeholder="Ingresa un nombre (ej. Batman)"
                         class="w-full py-3 pl-10 pr-4 text-texto bg-fondo border-2 border-borde rounded-md focus:outline-none focus:border-acento focus:ring-1 focus:ring-acento transition-colors placeholder-gray-400">
@@ -117,14 +118,14 @@
                         <!-- Icono flecha personalizado para el select -->
                         <div
                             class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-comic-pink">
-                            <i class="fa-solid fa-chevron-down"></i>
+                            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                         </div>
                     </div>
 
                     <!-- Botón de Acción -->
                     <button type="submit"
                         class="w-full sm:w-auto px-8 py-3 bg-comic-pink text-white font-bold uppercase tracking-wider rounded-md shadow-lg hover:shadow-acento hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
-                        Buscar <i class="fa-solid fa-arrow-right"></i>
+                        Buscar <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </button>
                 </div>
             </form>
@@ -144,13 +145,13 @@
                 <!-- Botón PRIMERO (<<) -->
                 <button id="btn-first" title="Ir al principio"
                     class="bg-superficie text-comic-pink border-2 border-comic-pink hover:bg-comic-pink hover:text-white font-bold py-2 px-4 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-superficie disabled:hover:text-comic-pink">
-                    <i class="fa-solid fa-angles-left"></i>
+                    <i class="fa-solid fa-angles-left" aria-hidden="true"></i>
                 </button>
 
                 <!-- Botón ANTERIOR (<) -->
                 <button id="btn-prev" title="Página anterior"
                     class="bg-comic-pink shadow-md hover:shadow-acento text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:shadow-none">
-                    <i class="fa-solid fa-chevron-left"></i>
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                 </button>
 
                 <!-- SELECTOR DE PÁGINA -->
@@ -168,13 +169,13 @@
                 <!-- Botón SIGUIENTE (>) -->
                 <button id="btn-next" title="Página siguiente"
                     class="bg-comic-pink shadow-md hover:shadow-acento text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:shadow-none">
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                 </button>
 
                 <!-- Botón ÚLTIMO (>>) -->
                 <button id="btn-last" title="Ir al final"
                     class="bg-superficie text-comic-pink border-2 border-comic-pink hover:bg-comic-pink hover:text-white font-bold py-2 px-4 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-superficie disabled:hover:text-comic-pink">
-                    <i class="fa-solid fa-angles-right"></i>
+                    <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
                 </button>
             </nav>
         </section>
@@ -188,19 +189,48 @@
         <!-- Contenido real -->
         <div
             class="relative z-10 p-6 rounded-md shadow-2xl bg-superficie/90 backdrop-blur-sm border-2 border-acento mx-4 text-center">
-            <p class="mb-2">
+            <!-- DATOS DE LA API -->
+            <p class="mb-4">
                 <span class="text-acento font-bold">Api:</span>
-                <a href="https://akabab.github.io/superhero-api/api/" target="_blank"
+                <a href="https://akabab.github.io/superhero-api/api/" target="_blank" rel="noopener noreferrer"
+                    aria-label="Ir a la documentación de SuperHero API"
                     class="text-white hover:text-acento transition-colors">
                     superhero-api
                 </a>
             </p>
-            <div class="w-full h-px bg-comic-pink my-3"></div>
-            <p class="text-sm font-mono text-white">
-                <span class="text-acento">Carrera:</span> FrontEnd - ADA
-                <span class="text-acento">Módulo:</span> 3
-                <span class="text-acento">Alumno:</span> Antonela Borgogno
-            </p>
+
+            <div class="w-full h-0.5 bg-comic-pink mb-4"></div>
+
+            <!-- DATOS DEL ALUMNO -->
+            <div class="text-sm font-mono text-white mb-4 flex gap-4">
+                <p><span class="text-acento font-bold">Carrera:</span> FrontEnd - ADA</p>
+                <div class="h-full w-px bg-comic-pink"></div>
+                <p><span class="text-acento font-bold">Módulo:</span> 3</p>
+                <div class="h-full w-px bg-comic-pink"></div>
+                <p><span class="text-acento font-bold">Alumno:</span> Antonela Borgogno</p>
+            </div>
+
+            <div class="w-full h-0.5 bg-comic-pink mb-4"></div>
+
+            <!-- REDES SOCIALES -->
+            <div class="flex justify-center items-center gap-6">
+
+                <!-- GitHub -->
+                <a href="https://github.com/Antonela89" target="_blank" rel="noopener noreferrer"
+                    aria-label="Ver perfil de GitHub de Antonela Borgogno"
+                    class="text-white text-3xl transition-all duration-300 transform hover:scale-125 hover:-translate-y-1 hover:text-acento hover:drop-shadow-[0_0_10px_var(--accent)]">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/antonela-borgogno/" target="_blank"
+                    rel="noopener noreferrer" aria-label="Ver perfil de LinkedIn de Antonela Borgogno"
+                    class="text-white text-3xl transition-all duration-300 transform hover:scale-125 hover:-translate-y-1 hover:text-acento hover:drop-shadow-[0_0_10px_var(--accent)]">
+                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                </a>
+
+            </div>
+
         </div>
     </footer>
 
@@ -220,8 +250,7 @@
             </button>
 
             <!-- COLUMNA 1: IMAGEN -->
-            <div
-                class="w-full lg:w-[350px] bg-acento p-8 flex items-center justify-center flex-shrink-0 relative">
+            <div class="w-full lg:w-[350px] bg-acento p-8 flex items-center justify-center flex-shrink-0 relative">
                 <div
                     class="hidden lg:flex relative w-full max-w-[500px] aspect-[2/3] rounded-md overflow-hidden group rotate-1 hover:rotate-0 transition-transform duration-500 bg-black">
                     <img id="modal-img" src="" alt=""
