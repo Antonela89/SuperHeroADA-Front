@@ -1,0 +1,252 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@layer base {
+    :root {
+        /* MODO CLARO */
+        /* Antes bg-gray-100 */
+        --bg-main: #f3f4f6;
+        /* Antes bg-white (Navbar/Cards) */
+        --bg-card: #ffffff;
+        /* Antes text-gray-800 */
+        --text-main: #1f2937;
+        /* Rosa comic */
+        --primary: #cd0055;
+        /* Antes amber-400 */
+        --accent: #fbbf24;
+        /* Antes border-gray-200 */
+        --border-color: #e5e7eb;
+        /* Para el botón de theme (gray-200) */
+        --btn-bg: #e5e7eb;
+        /* Hover del botón theme (gray-300) */
+        --btn-hover: #d1d5db;
+    }
+
+    /* MODO OSCURO */
+    .dark {
+        /* Antes bg-gray-900 */
+        --bg-main: #111827;
+        /* Antes bg-gray-800 */
+        --bg-card: #1f2937;
+        /* Antes text-gray-100 */
+        --text-main: #f3f4f6;
+        /* El amarillo se mantiene igual */
+        --accent: #fbbf24;
+        /* El rosa se mantiene igual */
+        --primary: #cd0055;
+        /* Antes border-gray-600 */
+        --border-color: #4b5563;
+        /* Botón theme dark (gray-700) */
+        --btn-bg: #374151;
+        /* Hover theme dark (gray-600) */
+        --btn-hover: #4b5563;
+    }
+}
+
+/*BACKGROUND*/
+.bg-comic-fixed {
+    position: relative;
+    background-image: url('../assets/banner.webp');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    inline-size: 100vw;
+}
+
+/* HERO: Muestra la parte de arriba de la imagen */
+.hero-container {
+    min-block-size: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-pink {
+    background-color: var(--primary);
+    opacity: 0.4;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* Formulario */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 40rem;
+}
+
+/* FOOTER: Muestra la parte de abajo de la imagen */
+.footer-container {
+    background-position: bottom center;
+    block-size: 50vh;
+}
+
+/* CURSOR */
+/* Ocultar cursor nativo en PC */
+@media (pointer: fine) {
+    body,
+    a,
+    button,
+    input,
+    select {
+        cursor: none !important;
+    }
+}
+
+/* Efecto cuando el cursor toca un enlace/botón */
+.cursor-hover {
+    transform: translate(-50%, -50%) scale(1.5) !important;
+    opacity: 1 !important;
+    color: #ffffff !important;
+    filter: drop-shadow(0 0 2px var(--primary)) drop-shadow(0 0 8px var(--primary));
+}
+
+.dot-hover {
+    background-color: var(--accent) !important;
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) scale(1.2) !important;
+    box-shadow: 0 0 5px var(--accent);
+}
+
+.cursor-hover i {
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* SCROLLBAR */
+/* Scrollbar Personalizado (Cross-Browser) */
+.custom-scrollbar {
+    /* ESTÁNDAR (Firefox) */
+    scrollbar-width: thin;
+    /* Hace la barra finita */
+    scrollbar-color: var(--primary) transparent;
+    /* Color: Rosa (Thumb) - Transparente (Track) */
+}
+
+/* CHROME, EDGE, SAFARI (Webkit) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    /* Para scroll horizontal si hubiera */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary);
+}
+
+/* LOADER */
+/* BORDE BLANCO PARA LA MÁSCARA */
+.comic-outline {
+    -webkit-text-stroke: 4px white; 
+    paint-order: stroke fill; 
+}
+
+/* Estilo Base (Buscando...) */
+.comic-font-base {
+    -webkit-text-stroke: 1px black; 
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    font-weight: 900; 
+    color: white;
+}
+
+/* Estilo KA-POW! (Explosivo) */
+.comic-font-kapow {
+    -webkit-text-stroke: 2px black;
+    color: var(--accent) !important;
+    text-shadow: 4px 4px 0px var(--primary);
+    transform: scale(1.2); 
+}
+
+/*  Animación de latido SÓLIDO  */
+/* Esta animación cambia el tamaño, NO la opacidad */
+@keyframes heart-beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.animate-heartbeat {
+    animation: heart-beat 1s infinite ease-in-out;
+}
+
+/* Animación de Explosión (La máscara crece y desaparece) */
+@keyframes comic-explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(30);
+        /* Crece muchísimo */
+        opacity: 0;
+    }
+}
+
+/* Clase utilitaria para activar la animación */
+.animate-explode {
+    animation: comic-explode 0.6s ease-out forwards;
+}
+
+/* Animación de Onda Expansiva (Shockwave) */
+@keyframes shockwave-pulse {
+    0% {
+        transform: scale(0);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(20);
+        opacity: 0;
+    }
+}
+
+/* Clase utilitaria para activar la animación */
+.animate-shockwave {
+    animation: shockwave-pulse 0.5s ease-out forwards;
+}
+
+/* Animación de Entrada de Golpe (Pop-in) */
+@keyframes comic-pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.4); /* Crece más de la cuenta (rebote) */
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2); /* Se estabiliza un poco grande */
+        opacity: 1;
+    }
+}
+
+/* Clase utilitaria para activar la animación */
+.animate-comic-pop {
+    animation: comic-pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
