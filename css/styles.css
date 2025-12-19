@@ -47,7 +47,7 @@
 /*BACKGROUND*/
 .bg-comic-fixed {
     position: relative;
-    background-image: url('../assets/banner.png');
+    background-image: url('../assets/banner.webp');
     background-size: cover;
     background-position: center top;
     background-attachment: fixed;
