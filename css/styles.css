@@ -128,7 +128,7 @@
 
 /* SCROLLBAR (Clase custom-scrollbar) */
 .custom-scrollbar {
-    scrollbar-color:  var(--border-color);
+    scrollbar-color: var(--border-color);
     scrollbar-width: thin;
 }
 
@@ -152,21 +152,27 @@
 /* Hover en la barra */
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background-color: var(--primary);
-    /* Se pone Rosa al tocarla */
-/* Animación de Explosión (La máscara crece y desaparece) */
-@keyframes comic-explode {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: scale(30); /* Crece muchísimo */
-        opacity: 0;
-    }
 }
+
+    /* Se pone Rosa al tocarla */
+    /* Animación de Explosión (La máscara crece y desaparece) */
+    @keyframes comic-explode {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(30);
+            /* Crece muchísimo */
+            opacity: 0;
+        }
+    }
+
 
 /* Clase utilitaria para activar la animación */
 .animate-explode {
@@ -179,6 +185,7 @@
         transform: scale(0);
         opacity: 0.8;
     }
+
     100% {
         transform: scale(20);
         opacity: 0;
