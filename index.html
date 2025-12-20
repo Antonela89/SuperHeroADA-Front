@@ -141,43 +141,48 @@
             </div>
 
             <!-- Paginación -->
-            <nav aria-label="Navegación de páginas" class="flex justify-center gap-6">
+            <nav aria-label="Navegación de páginas" class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 lg:gap-6 w-full py-4">
                 <!-- Botón PRIMERO (<<) -->
                 <button id="btn-first" title="Ir al principio"
-                    class="bg-superficie text-comic-pink border-2 border-comic-pink hover:bg-comic-pink hover:text-white font-bold py-2 px-4 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-superficie disabled:hover:text-comic-pink">
-                    <i class="fa-solid fa-angles-left" aria-hidden="true"></i>
+                    class="flex items-center justify-center w-8 h-8 sm:w-auto sm:h-auto bg-superficie text-comic-pink border-2 border-comic-pink hover:bg-comic-pink hover:text-white sm:font-bold sm:py-2 sm:px-4 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-superficie disabled:hover:text-comic-pink">
+                    <i class="fa-solid fa-angles-left text-xs sm:text-base" aria-hidden="true"></i>
                 </button>
 
                 <!-- Botón ANTERIOR (<) -->
                 <button id="btn-prev" title="Página anterior"
-                    class="bg-comic-pink shadow-md hover:shadow-acento text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:shadow-none">
-                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                    class="flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto bg-comic-pink shadow-md hover:shadow-acento text-white sm:font-bold sm:py-3 sm:px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:shadow-none">
+                    <i class="fa-solid fa-chevron-left text-xs sm:text-lg" aria-hidden="true"></i>
                 </button>
 
                 <!-- SELECTOR DE PÁGINA -->
-                <div
-                    class="flex items-center gap-2 bg-superficie px-4 py-2 rounded-lg border-2 border-borde shadow-inner">
-                    <span class="text-sm font-bold text-texto">Pág.</span>
-                    <!-- El select se rellena con JS -->
-                    <select id="select-pages"
-                        class="bg-fondo text-comic-pink font-bold border border-borde rounded p-1 focus:outline-none focus:border-acento cursor-pointer">
-                        <option value="1">1</option>
-                    </select>
-                    <span class="text-sm font-bold text-texto" id="total-pages-text">de 1</span>
-                </div>
+                 <div
+        class="flex items-center gap-1 sm:gap-2 bg-superficie px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border-2 border-borde shadow-inner h-10 sm:h-auto">
+        
+        <!-- Texto "Pág." -->
+        <span class="hidden sm:inline text-sm font-bold text-texto">Pág.</span>
+        
+        <!-- Select -->
+        <select id="select-pages"
+            class="bg-fondo text-comic-pink text-sm sm:text-base font-bold border border-borde rounded p-0.5 sm:p-1 focus:outline-none focus:border-acento cursor-pointer">
+            <option value="1">1</option>
+        </select>
+        
+        <!-- Texto "de X" -->
+        <span class="text-xs sm:text-sm font-bold text-texto whitespace-nowrap" id="total-pages-text">de 1</span>
+    </div>
 
-                <!-- Botón SIGUIENTE (>) -->
-                <button id="btn-next" title="Página siguiente"
-                    class="bg-comic-pink shadow-md hover:shadow-acento text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:shadow-none">
-                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                </button>
+    <!-- Botón SIGUIENTE (>) -->
+    <button id="btn-next" title="Página siguiente"
+        class="flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto bg-comic-pink shadow-md hover:shadow-acento text-white sm:font-bold sm:py-3 sm:px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none disabled:hover:translate-y-0 disabled:hover:shadow-none">
+        <i class="fa-solid fa-chevron-right text-sm sm:text-lg" aria-hidden="true"></i>
+    </button>
 
-                <!-- Botón ÚLTIMO (>>) -->
-                <button id="btn-last" title="Ir al final"
-                    class="bg-superficie text-comic-pink border-2 border-comic-pink hover:bg-comic-pink hover:text-white font-bold py-2 px-4 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-superficie disabled:hover:text-comic-pink">
-                    <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
-                </button>
-            </nav>
+    <!-- Botón ÚLTIMO (>>) -->
+    <button id="btn-last" title="Ir al final"
+        class="flex items-center justify-center w-8 h-8 sm:w-auto sm:h-auto bg-superficie text-comic-pink border-2 border-comic-pink hover:bg-comic-pink hover:text-white sm:font-bold sm:py-2 sm:px-4 rounded-full transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-superficie disabled:hover:text-comic-pink">
+        <i class="fa-solid fa-angles-right text-xs sm:text-base" aria-hidden="true"></i>
+    </button>
+</nav>
         </section>
     </main>
 
@@ -244,10 +249,11 @@
 
         <!-- CONTENEDOR PRINCIPAL -->
         <div
-            class="relative w-full max-w-7xl max-h-[90vh] lg:h-[600px] bg-superficie text-texto rounded-xl shadow-2xl border-2 border-acento flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden transition-all scale-100 custom-scrollbar">
+            class="relative w-full max-w-7xl max-h-[90vh] lg:h-[600px] bg-superficie text-texto rounded-md shadow-2xl border-2 border-acento flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden overflow-x-hidden transition-all scale-100 custom-scrollbar">
+
             <!-- Botón Cerrar -->
             <button id="close-modal"
-                class="sticky lg:absolute top-4 right-4 z-50 ml-auto lg:ml-0 mb-[-40px] lg:mb-0 text-texto hover:text-comic-pink bg-btn-ui hover:bg-btn-ui-hover rounded-full p-2 transition-colors shadow-lg border border-borde w-10 h-10 flex items-center justify-center">
+                class="sticky top-0 lg:absolute lg:top-4 right-0 lg:right-4 z-50 self-end lg:self-auto m-4 lg:m-0 mb-[-20px] lg:mb-0 text-texto hover:text-comic-pink bg-btn-ui hover:bg-btn-ui-hover rounded-full p-2 transition-colors shadow-lg border border-borde w-10 h-10 flex items-center justify-center shrink-0">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
 
@@ -264,13 +270,14 @@
             </div>
 
             <!-- COLUMNA 2 Y 3: CONTENIDO Y STATS -->
-            <div class="flex-1 flex flex-col lg:flex-row h-auto lg:h-full">
+            <div class="flex flex-col lg:flex-row w-full h-auto lg:h-full">
 
                 <!-- SECCIÓN CENTRAL (BIO) -->
-                <div class="flex-1 p-6 lg:p-10 flex flex-col h-full overflow-y-auto custom-scrollbar">
+                <div class="p-4 lg:p-10 flex flex-col w-full h-auto lg:h-full lg:overflow-y-auto custom-scrollbar">
+
 
                     <!-- Header -->
-                    <div class="mb-8 border-b border-borde/30 pb-6">
+                    <div class="mb-8 border-b border-borde/30 pb-6 mt-6">
                         <div class="flex flex-col sm:flex-row sm:items-center gap-3 mb-1">
                             <h2 id="modal-name"
                                 class="text-3xl sm:text-4xl lg:text-5xl font-black text-comic-pink uppercase italic drop-shadow-sm tracking-tighter leading-none break-words">
@@ -333,7 +340,7 @@
                         class="text-xs font-black text-texto uppercase mb-6 opacity-60 tracking-[0.2em] flex items-center gap-2">
                         <i class="fa-solid fa-chart-simple"></i> Powerstats
                     </h3>
-                    <div id="modal-stats" class="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-col gap-4 pb-4">
+                    <div id="modal-stats" class="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-col gap-4 pb-4">
                         <!-- JS inyecta aquí -->
                     </div>
                 </div>

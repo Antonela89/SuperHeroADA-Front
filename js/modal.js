@@ -78,12 +78,8 @@ const renderStats = (stats, colorClass, iconColorClass) => {
 		const percentage = value === 'null' ? 0 : value;
 		const icon = icons[statName] || 'fa-circle'; // Icono por defecto
 
-		// DISEÑO COMPACTO
-		// AJUSTES RESPONSIVE EN LAS CLASES:
-		// text-xl (móvil 320px) -> sm:text-2xl (tablets/desktop)
-		// h-auto (flexible en móvil)
 		const statHTML = `
-            <div class="bg-superficie p-4 rounded-lg border border-borde flex flex-col justify-between relative overflow-hidden group hover:border-acento hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="w-full bg-superficie p-4 rounded-md border border-borde flex flex-col justify-between relative overflow-hidden group hover:border-acento hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 
                 <div class="absolute -right-4 -bottom-4 text-6xl text-texto opacity-[0.1] rotate-12 group-hover:opacity-[0.1] group-hover:scale-110 group-hover:rotate-0 transition-all duration-500 z-0 pointer-events-none">
                     <i class="fa-solid ${icon} ${iconColorClass}"></i>
